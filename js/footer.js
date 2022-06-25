@@ -1,0 +1,5 @@
+div=document.createElement('div')
+div.innerHTML="<footer class='footer' class='bg-dark text-center text-white'><div class='text-center p-3' style='background-color: rgba(0, 0, 0, 0.2);'>© 2021 Copyright @ Aaditya Sharma</div></footer>"
+body=document.getElementsByTagName('body')[0]
+body.appendChild(div)
+//<div class='container p-4 pb-0'><section class='mb-4'><a class='btn btn-outline-light btn-floating m-1' href='#!' role='button'><iclass='fab fa-twitter'></i></a><a class='btn btn-outline-light btn-floating m-1' href='#!' role='button'><iclass='fab fa-google'></i></a><a class='btn btn-outline-light btn-floating m-1' href='#!' role='button'><iclass='fab fa-linkedin-in'></i></a><a class='btn btn-outline-light btn-floating m-1' href='#!' role='button'><iclass='fab fa-github'></i></a></section></div>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <title>AJAX Examples</title>
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/mdb.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src='js/customJavascriptLibrary.js'></script>
+    <script>
+
+        function saveEnquiry() {
+            var firstName = $$$("firstName").value();
+            var lastName = $$$("lastName").value();
+            var age = $$$("age").value();
+
+            var customer = {
+                "firstName": firstName,
+                "lastName": lastName,
+                "age": age
+            };
+
+            var whatever = $$$("whatever");
+            whatever.html("");
+            $$$.ajax({
+                "methodType": "POST",
+                "url": "servletThree",
+                "sendJSON": true,
+                "data": customer,
+                "success": function (responseData) {
+                    var customer = JSON.parse(responseData)
+                    var a = "First Name : " +"<b>"+ customer.firstName+"</b>" + "<br>";
+                    a = a + "Last Name : " +"<b>"+ customer.lastName+"</b>" + "<br>";
+                    a = a + "Age : " +"<b>"+ customer.age+"</b>";
+                    whatever.html(a);
+                },
+                "failure": function () {
+                    alert("Some Problem");
+                }
+            });
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+    <script src="js/navbar.js"></script>
+    <center>
+        <h1>Post type request</h1>
+        <img src="images/info.png" style="width:20px;height:20px;"> Accepting data from user in HTML form and sending it as POST Request to the servlet, in response getting the same data back.<br>
+        <hr>
+        <table>
+            <tbody>
+                <tr>
+                    <td>First name</td><td><input type='text' id='firstName'></td>
+                </tr>
+                <tr>
+                    <td>Last name</td><td><input type='text' id='lastName'></td>
+                </tr>
+                <tr>
+                    <td>Age </td><td><input type='text' id='age'></td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <button type='button' onclick='saveEnquiry()'>Save</button>
+        <br>
+        <div id='whatever'></div>
+        <br>
+        <a href='index.html'>Home</a>
+        <hr>
+    </center>
+    <script src="js/footer.js"></script>
+</body>
+
+</html>
