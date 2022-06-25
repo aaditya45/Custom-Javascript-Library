@@ -1,10 +1,6 @@
-//TMJRock part starts here
-
 function $$$(cid) {
   let element = document.getElementById(cid);
   if (!element) throw "Invalid id : " + cid;
-  //alert(typeof element);
-  //alert(element.toString());
   return new TMJRockElement(element);
 }
 
